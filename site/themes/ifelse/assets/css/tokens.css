@@ -1,0 +1,25 @@
+{{- /*
+Generates CSS custom properties from assets/design/tokens.json (exported from Penpot).
+Executed with resources.ExecuteAsTemplate; scales left as rgb(0, 0, 0) placeholders are skipped.
+
+@example: --color-primary-300, --color-primary (from "base")
+*/}}
+{{- $tokens := resources.Get "design/tokens.json" | transform.Unmarshal }}
+{{- $palette := index $tokens "colorWheelPrimitives_1/Mode 1" }}
+:root {
+{{- range $name, $scale := $palette }}
+  {{- $placeholder := true }}
+  {{- range $scale }}
+    {{- if ne (index . "$value") "rgb(0, 0, 0)" }}{{ $placeholder = false }}{{ end }}
+  {{- end }}
+  {{- if not $placeholder }}
+    {{- range $step, $token := $scale }}
+      {{- if eq $step "base" }}
+  --color-{{ $name }}: {{ index $token "$value" }};
+      {{- else }}
+  --color-{{ $name }}-{{ $step }}: {{ index $token "$value" }};
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+}

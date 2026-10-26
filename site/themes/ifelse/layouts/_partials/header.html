@@ -1,0 +1,10 @@
+<a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+{{- with .Translations }}
+  <nav>
+    <ul>
+      {{- range . }}
+        <li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a></li>
+      {{- end }}
+    </ul>
+  </nav>
+{{- end }}

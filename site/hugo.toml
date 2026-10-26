@@ -1,0 +1,19 @@
+baseURL = 'https://canalifelse.github.io/'
+title = 'IF ELSE'
+theme = 'ifelse'
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    label = 'English'
+    locale = 'en-US'
+    weight = 1
+  [languages.pt-br]
+    label = 'Português'
+    locale = 'pt-BR'
+    weight = 2
+
+[taxonomies]
+  branch = 'branches'

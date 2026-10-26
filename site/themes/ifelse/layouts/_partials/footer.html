@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    {{- range slice "legal-notice" "privacy-policy" }}
+      {{- with site.GetPage . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+<p>&copy; {{ now.Year }} {{ site.Title }}</p>

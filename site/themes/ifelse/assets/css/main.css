@@ -1,0 +1,11 @@
+body {
+  background: var(--color-quaternary-100);
+  color: var(--color-secondary-600);
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 1rem;
+}
+
+a {
+  color: var(--color-primary-300);
+}

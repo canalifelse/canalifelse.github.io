@@ -1,0 +1,8 @@
+[underConstruction]
+other = 'Site under construction.'
+
+[journal]
+other = 'The journal'
+
+[readingTime]
+other = '{{ .Count }} min read'

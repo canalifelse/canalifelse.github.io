@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1>{{ site.Title }}</h1>
+  <p>{{ T "underConstruction" }}</p>
+  {{ .Content }}
+  {{ with where site.RegularPages "Section" "journal" }}
+    <h2>{{ T "journal" }}</h2>
+    {{ range . }}
+      <article>
+        <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+        <p>{{ with .Params.format }}{{ . }} · {{ end }}{{ T "readingTime" .ReadingTime }}</p>
+      </article>
+    {{ end }}
+  {{ end }}
+{{ end }}

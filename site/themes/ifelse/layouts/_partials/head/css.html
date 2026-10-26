@@ -1,0 +1,10 @@
+{{- $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" . }}
+{{- with slice $tokens (resources.Get "css/main.css") | resources.Concat "css/main.css" }}
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}
