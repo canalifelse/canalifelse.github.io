@@ -1,0 +1,6 @@
+{{- /* Inlined so the stored theme applies before first paint. */}}
+{{- with resources.Get "js/theme.js" }}
+  {{- with . | js.Build (dict "minify" true "target" "es2019") }}
+    <script>{{ .Content | safeJS }}</script>
+  {{- end }}
+{{- end }}

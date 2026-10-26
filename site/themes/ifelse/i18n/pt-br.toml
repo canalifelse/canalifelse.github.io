@@ -1,8 +1,47 @@
-[underConstruction]
-other = 'Site em construção.'
+[skipToContent]
+other = 'Pular para o conteúdo'
 
-[journal]
-other = 'O diário'
+[taglineLogic]
+other = 'Se podemos, criamos.'
+
+[taglineCuriosity]
+other = 'Senão, aprendemos.'
+
+[menu]
+other = 'Menu'
+
+[home]
+other = 'Página inicial do If Else'
 
 [readingTime]
 other = '{{ .Count }} min de leitura'
+
+[exploreIdea]
+other = 'Explore a ideia'
+
+[readMore]
+other = 'Ler a história'
+
+[playVideo]
+other = 'Assista ao If Else no YouTube'
+
+[footerEyebrow]
+other = 'Sempre existe um senão.'
+
+[footerTitle]
+other = 'Na dúvida, pergunte ao pato.'
+
+[footerBody]
+other = 'Toda boa pergunta merece ser dita em voz alta. É aí que começa a próxima história.'
+
+[colophon]
+other = 'Feito de perguntas, não de cookies.'
+
+[backToTop]
+other = 'Voltar ao topo'
+
+[noStories]
+other = 'Nada por aqui ainda. Os dados ainda estão rolando.'
+
+[darkTheme]
+other = 'Tema escuro'

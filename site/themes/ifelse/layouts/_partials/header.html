@@ -1,10 +1,22 @@
-<a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
-{{- with .Translations }}
-  <nav>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a></li>
-      {{- end }}
-    </ul>
+<header class="site-header container">
+  <div class="site-header__brand">
+    {{ partial "logo.html" . }}
+    <p class="site-header__tagline">{{ T "taglineLogic" }}<br>{{ T "taglineCuriosity" }}</p>
+  </div>
+  <nav class="site-header__nav" aria-label="{{ T "menu" }}">
+    {{ partial "nav.html" . }}
   </nav>
-{{- end }}
+  <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="{{ T "darkTheme" }}" title="{{ T "darkTheme" }}" hidden>
+    <span class="theme-toggle__moon">{{ partial "icon.html" "moon" }}</span>
+    <span class="theme-toggle__sun">{{ partial "icon.html" "sun" }}</span>
+  </button>
+  <details class="site-header__menu">
+    <summary aria-label="{{ T "menu" }}">
+      <span class="site-header__open">{{ partial "icon.html" "menu" }}</span>
+      <span class="site-header__close">{{ partial "icon.html" "close" }}</span>
+    </summary>
+    <nav aria-label="{{ T "menu" }}">
+      {{ partial "nav.html" . }}
+    </nav>
+  </details>
+</header>

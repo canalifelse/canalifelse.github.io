@@ -1,8 +1,47 @@
-[underConstruction]
-other = 'Site under construction.'
+[skipToContent]
+other = 'Skip to content'
 
-[journal]
-other = 'The journal'
+[taglineLogic]
+other = 'If we can, we create.'
+
+[taglineCuriosity]
+other = 'Else, we learn.'
+
+[menu]
+other = 'Menu'
+
+[home]
+other = 'If Else home'
 
 [readingTime]
 other = '{{ .Count }} min read'
+
+[exploreIdea]
+other = 'Explore the idea'
+
+[readMore]
+other = 'Read the story'
+
+[playVideo]
+other = 'Watch If Else on YouTube'
+
+[footerEyebrow]
+other = 'There’s always an else.'
+
+[footerTitle]
+other = 'Stay curious. Pass it on.'
+
+[footerBody]
+other = 'Found a good question? That’s where the next story starts.'
+
+[colophon]
+other = 'Made of questions, not cookies.'
+
+[backToTop]
+other = 'Back to top'
+
+[noStories]
+other = 'No stories here yet.'
+
+[darkTheme]
+other = 'Dark theme'

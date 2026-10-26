@@ -1,0 +1,63 @@
+# Semantic color roles for the light and dark schemes.
+# Values are token names from assets/design/tokens.json (<scale>-<step>, or <scale> for "base").
+# assets/css/tokens.css turns each role into --<role>: light-dark(<light>, <dark>).
+
+[colors.bg]
+light = 'quaternary-100'
+dark = 'grey-700'
+
+[colors.ink]
+light = 'secondary-600'
+dark = 'quaternary-100'
+
+[colors.ink-soft]
+light = 'secondary-500'
+dark = 'grey-100'
+
+[colors.muted]
+light = 'grey-400'
+dark = 'grey-200'
+
+[colors.line]
+light = 'quaternary-300'
+dark = 'quaternary-500'
+
+[colors.line-strong]
+light = 'secondary-600'
+dark = 'quaternary-200'
+
+[colors.accent]
+light = 'primary-300'
+dark = 'primary-300'
+
+[colors.accent-ink]
+light = 'primary-400'
+dark = 'primary-200'
+
+[colors.accent-hover]
+light = 'primary-400'
+dark = 'primary-400'
+
+[colors.panel]
+light = 'tertiary-100'
+dark = 'grey-600'
+
+[colors.art]
+light = 'tertiary-200'
+dark = 'tertiary-500'
+
+[colors.code-bg]
+light = 'secondary-600'
+dark = 'secondary-700'
+
+[colors.band]
+light = 'secondary-600'
+dark = 'secondary-600'
+
+[colors.on-band]
+light = 'quaternary-100'
+dark = 'quaternary-100'
+
+[colors.on-band-soft]
+light = 'secondary-200'
+dark = 'secondary-200'

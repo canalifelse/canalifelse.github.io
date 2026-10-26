@@ -2,18 +2,25 @@ baseURL = 'https://canalifelse.github.io/'
 title = 'IF ELSE'
 theme = 'ifelse'
 
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'pt-br'
 defaultContentLanguageInSubdir = false
 
+[params]
+  youtube = 'https://www.youtube.com/@canalifelse'
+
 [languages]
-  [languages.en]
-    label = 'English'
-    locale = 'en-US'
-    weight = 1
   [languages.pt-br]
     label = 'Português'
     locale = 'pt-BR'
+    weight = 1
+  [languages.en]
+    label = 'English'
+    locale = 'en-US'
     weight = 2
 
 [taxonomies]
   branch = 'branches'
+
+[imaging]
+  [imaging.webp]
+    quality = 80

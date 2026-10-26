@@ -1,11 +1,13 @@
 {{- /*
-Generates CSS custom properties from assets/design/tokens.json (exported from Penpot).
+Generates CSS custom properties from assets/design/tokens.json (exported from Penpot),
+plus the semantic roles in data/theme.toml for the light and dark schemes.
 Executed with resources.ExecuteAsTemplate; scales left as rgb(0, 0, 0) placeholders are skipped.
 
-@example: --color-primary-300, --color-primary (from "base")
+@example: --color-primary-300, --color-primary (from "base"), --bg: light-dark(…, …)
 */}}
 {{- $tokens := resources.Get "design/tokens.json" | transform.Unmarshal }}
 {{- $palette := index $tokens "colorWheelPrimitives_1/Mode 1" }}
+{{- $names := slice }}
 :root {
 {{- range $name, $scale := $palette }}
   {{- $placeholder := true }}
@@ -14,12 +16,30 @@ Executed with resources.ExecuteAsTemplate; scales left as rgb(0, 0, 0) placehold
   {{- end }}
   {{- if not $placeholder }}
     {{- range $step, $token := $scale }}
-      {{- if eq $step "base" }}
-  --color-{{ $name }}: {{ index $token "$value" }};
-      {{- else }}
-  --color-{{ $name }}-{{ $step }}: {{ index $token "$value" }};
-      {{- end }}
+      {{- $var := cond (eq $step "base") $name (printf "%s-%s" $name $step) }}
+      {{- $names = $names | append $var }}
+  --color-{{ $var }}: {{ index $token "$value" }};
     {{- end }}
   {{- end }}
 {{- end }}
+}
+
+:root {
+  color-scheme: light dark;
+{{- range $role, $scheme := hugo.Data.theme.colors }}
+  {{- range slice $scheme.light $scheme.dark }}
+    {{- if not (in $names .) }}
+      {{- errorf "data/theme.toml: role %q uses unknown token %q" $role . }}
+    {{- end }}
+  {{- end }}
+  --{{ $role }}: light-dark(var(--color-{{ $scheme.light }}), var(--color-{{ $scheme.dark }}));
+{{- end }}
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }

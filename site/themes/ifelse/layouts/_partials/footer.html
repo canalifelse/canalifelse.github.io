@@ -1,10 +1,33 @@
-<nav>
-  <ul>
-    {{- range slice "legal-notice" "privacy-policy" }}
-      {{- with site.GetPage . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__cta">
+      <div>
+        <p class="eyebrow">{{ T "footerEyebrow" }}</p>
+        <h2 class="title-lg">{{ T "footerTitle" }}</h2>
+        <p class="site-footer__body">{{ T "footerBody" }}</p>
+      </div>
+      <ul class="site-footer__links">
+        {{- range after 1 site.Menus.main }}
+          {{- $external := hasPrefix .URL "http" }}
+          <li><a href="{{ .URL }}"{{ if $external }} rel="noopener"{{ end }}>{{ .Name }}{{ if $external }} {{ partial "icon.html" "arrow-up-right" }}{{ end }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+    <div class="site-footer__bar">
+      {{ partial "logo.html" . }}
+      <p class="site-footer__colophon">&copy; {{ site.Title }} {{ now.Year }} · {{ T "colophon" }}</p>
+      {{- $legal := slice }}
+      {{- range slice "legal-notice" "privacy-policy" }}
+        {{- with site.GetPage . }}{{ $legal = $legal | append . }}{{ end }}
       {{- end }}
-    {{- end }}
-  </ul>
-</nav>
-<p>&copy; {{ now.Year }} {{ site.Title }}</p>
+      {{- with $legal }}
+        <ul class="site-footer__legal">
+          {{- range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      {{- end }}
+      <a class="site-footer__top" href="#top">{{ T "backToTop" }} {{ partial "icon.html" "arrow-up" }}</a>
+    </div>
+  </div>
+</footer>

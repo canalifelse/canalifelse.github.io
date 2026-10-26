@@ -1,15 +1,29 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
-  {{ if eq .Section "journal" }}
-    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $dateHuman := .Date | time.Format ":date_long" }}
-    <p>
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-      {{ with .Params.format }} · {{ . }}{{ end }} · {{ T "readingTime" .ReadingTime }}
-    </p>
-  {{ end }}
-
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "branches" "page" .) }}
+  <article class="prose-page container">
+    <header class="prose-page__header">
+      {{- if eq .Section "journal" }}
+        <p class="feature__kicker">
+          {{- with .GetTerms "branches" }}<a class="eyebrow" href="{{ (index . 0).RelPermalink }}">{{ (index . 0).Title }}</a>{{ end }}
+          {{- with .Params.kicker }} <span>/ {{ . }}</span>{{ end -}}
+        </p>
+      {{- end }}
+      <h1 class="title-xl">{{ .Title }}</h1>
+      {{- with .Description }}<p class="prose-page__lead">{{ . }}</p>{{ end }}
+      {{- if eq .Section "journal" }}
+        <p class="meta">
+          <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time>
+          {{- with .Params.format }} · {{ . }}{{ end }} · {{ T "readingTime" .ReadingTime }}
+        </p>
+      {{- end }}
+    </header>
+    {{- with and .Params.cover (.Resources.Get .Params.cover) }}
+      {{- with .Resize "1600x webp" }}
+        <img class="prose-page__cover" src="{{ .RelPermalink }}" width="{{ div .Width 2 }}" height="{{ div .Height 2 }}" alt="">
+      {{- end }}
+    {{- end }}
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{ partial "terms.html" (dict "taxonomy" "branches" "page" .) }}
+  </article>
 {{ end }}

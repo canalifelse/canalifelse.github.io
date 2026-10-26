@@ -1,0 +1,28 @@
+{{- /*
+Decorative "if (curious) { … } else { … }" illustration.
+
+@context {string} caption The caption in the bottom-right corner.
+@context {string} href Optional link; when set, a play button is rendered.
+@context {string} label Accessible name for the play button.
+
+@example: {{ partial "code-art.html" (dict "caption" "Less stack. More making.") }}
+*/}}
+
+<div class="code-art{{ if .href }} code-art--video{{ end }}">
+  <span class="code-art__brace" aria-hidden="true">{</span>
+  <span class="code-art__sun" aria-hidden="true"></span>
+  <div class="code-art__window" aria-hidden="true">
+    <p class="code-art__bar"><span class="code-art__dots"><i></i><i></i><i></i></span> curiosity.ts</p>
+    <pre class="code-art__code"><code><span class="code-art__kw">if (curious) {</span>
+  build(); learn(); share();
+<span class="code-art__muted">} else {</span>
+  rollForCuriosity();
+<span class="code-art__kw">}</span></code></pre>
+  </div>
+  {{- with .href }}
+    <a class="code-art__play" href="{{ . }}" aria-label="{{ $.label }}">{{ partial "icon.html" "play" }}</a>
+  {{- end }}
+  {{- with .caption }}
+    <p class="code-art__caption">{{ . }}</p>
+  {{- end }}
+</div>

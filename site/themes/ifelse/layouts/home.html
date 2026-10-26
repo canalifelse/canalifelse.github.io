@@ -1,14 +1,123 @@
 {{ define "main" }}
-  <h1>{{ site.Title }}</h1>
-  <p>{{ T "underConstruction" }}</p>
-  {{ .Content }}
-  {{ with where site.RegularPages "Section" "journal" }}
-    <h2>{{ T "journal" }}</h2>
-    {{ range . }}
-      <article>
-        <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
-        <p>{{ with .Params.format }}{{ . }} · {{ end }}{{ T "readingTime" .ReadingTime }}</p>
-      </article>
-    {{ end }}
-  {{ end }}
+  {{- $p := .Params }}
+  {{- $posts := where site.RegularPages "Section" "journal" }}
+  {{- $featured := "" }}
+  {{- with where $posts "Params.featured" true }}{{ $featured = index . 0 }}{{ else }}{{ with $posts }}{{ $featured = index . 0 }}{{ end }}{{ end }}
+  {{- $stories := $posts }}
+  {{- with $featured }}{{ $stories = complement (slice .) $posts }}{{ end }}
+  {{- $stories = first 3 $stories }}
+
+  {{- /* Introduction */}}
+  <section class="intro container" aria-labelledby="intro-title">
+    <p class="eyebrow">{{ $p.intro.eyebrow }}</p>
+    <div class="intro__grid">
+      <h1 class="title-xl" id="intro-title">
+        {{- range $i, $line := $p.intro.title }}{{ if $i }}<br> {{ end }}{{ $line }}{{ end -}}
+      </h1>
+      <div class="intro__lead">
+        <p>{{ $p.intro.lead }}</p>
+        <a class="link-cta" href="#journal">{{ $p.intro.cta }} {{ partial "icon.html" "arrow-down" }}</a>
+      </div>
+    </div>
+    {{- with site.GetPage "/branches" }}
+      <nav class="topics" aria-label="{{ $p.intro.branches }}">
+        <ul class="topics__list">
+          {{- range .Pages.ByWeight }}
+            <li><a class="topic-button" href="{{ .RelPermalink }}">{{ with .Params.icon }}{{ partial "icon.html" . }}{{ end }}{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </nav>
+    {{- end }}
+  </section>
+
+  {{- /* The journal */}}
+  <section class="journal container" id="journal" aria-labelledby="journal-title">
+    <header class="journal__header">
+      <div>
+        <p class="eyebrow">{{ $p.journal.eyebrow }}</p>
+        <h2 class="title-lg" id="journal-title">{{ $p.journal.title }}</h2>
+      </div>
+      <p class="journal__aside">{{ $p.journal.aside }} {{ partial "icon.html" "arrow-down-left" }}</p>
+    </header>
+
+    <div class="journal__grid">
+      <div class="journal__main">
+        {{- with $featured }}
+          <article class="feature">
+            <div class="feature__media">
+              {{- with and .Params.cover (.Resources.Get .Params.cover) }}
+                {{- with .Fill "1856x700 webp" }}
+                  <img src="{{ .RelPermalink }}" width="{{ div .Width 2 }}" height="{{ div .Height 2 }}" alt="">
+                {{- end }}
+              {{- else }}
+                {{ partial "code-art.html" (dict "caption" $p.journal.art) }}
+              {{- end }}
+            </div>
+            <p class="feature__kicker">
+              {{- with .GetTerms "branches" }}<span class="eyebrow">{{ (index . 0).Title }}</span>{{ end }}
+              {{- with .Params.kicker }} <span>/ {{ . }}</span>{{ end -}}
+            </p>
+            <h3 class="feature__title title-lg"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{- with .Description }}<p class="feature__desc">{{ . }}</p>{{ end }}
+            <footer class="feature__footer">
+              {{ partial "meta.html" . }}
+              <a class="link-cta" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ T "exploreIdea" }} {{ partial "icon.html" "arrow-up-right" }}</a>
+            </footer>
+          </article>
+        {{- else }}
+          <p class="journal__empty">{{ $p.journal.empty }}</p>
+        {{- end }}
+
+        {{- with $stories }}
+          <div class="story-list">
+            {{- range . }}{{ partial "story-card.html" . }}{{ end }}
+          </div>
+        {{- end }}
+
+        {{- with site.GetPage "/journal" }}
+          <a class="button-outline" href="{{ .RelPermalink }}">{{ $p.journal.all }} {{ partial "icon.html" "arrow-right" }}</a>
+        {{- end }}
+      </div>
+
+      <aside class="journal__side">
+        <div class="hello">
+          <p class="hello__greeting">{{ $p.hello.greeting }}</p>
+          <h3 class="hello__title">{{ range $i, $line := $p.hello.title }}{{ if $i }}<br> {{ end }}{{ $line }}{{ end }}</h3>
+          {{- range $p.hello.body }}<p>{{ . }}</p>{{ end }}
+          {{- with site.GetPage "/about" }}
+            <a class="link-cta" href="{{ .RelPermalink }}">{{ $p.hello.link }} {{ partial "icon.html" "arrow-up-right" }}</a>
+          {{- end }}
+        </div>
+
+        <div class="picker">
+          <h3 class="eyebrow">{{ $p.picker }}</h3>
+          {{ partial "branch-list.html" . }}
+        </div>
+
+        <div class="wip">
+          <h3 class="wip__title">{{ $p.wip.title }}</h3>
+          <p>{{ $p.wip.body }}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {{- /* The YouTube channel */}}
+  <section class="channel" aria-labelledby="channel-title">
+    <div class="channel__grid container">
+      <div class="channel__text">
+        <p class="channel__label">{{ partial "icon.html" "youtube" }} {{ $p.youtube.label }}</p>
+        <h2 class="title-lg" id="channel-title">{{ range $i, $line := $p.youtube.title }}{{ if $i }}<br> {{ end }}{{ $line }}{{ end }}</h2>
+        <p>{{ $p.youtube.body }}</p>
+        <a class="button" href="{{ site.Params.youtube }}" rel="noopener">{{ $p.youtube.button }} {{ partial "icon.html" "arrow-up-right" }}</a>
+      </div>
+      <figure class="channel__media">
+        {{ partial "code-art.html" (dict "caption" $p.youtube.art "href" site.Params.youtube "label" (T "playVideo")) }}
+        <figcaption class="channel__caption">
+          <span>{{ $p.youtube.caption }}</span>
+          <span>{{ partial "icon.html" "arrow-up-right" }} YouTube</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 {{ end }}

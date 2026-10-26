@@ -1,0 +1,20 @@
+{{- /*
+Renders the branches as a list of cards with icon and description.
+
+@context {page} . The current page.
+*/}}
+
+{{- with site.GetPage "/branches" }}
+  <ul class="branch-list">
+    {{- range .Pages.ByWeight }}
+      <li class="branch-list__item">
+        {{- with .Params.icon }}{{ partial "icon.html" . }}{{ end }}
+        <span>
+          <a class="branch-list__name" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="branch-list__desc">{{ .Description }}</span>
+        </span>
+        {{ partial "icon.html" "arrow-up-right" }}
+      </li>
+    {{- end }}
+  </ul>
+{{- end }}

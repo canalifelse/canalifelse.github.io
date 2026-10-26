@@ -1,0 +1,30 @@
+{{- /*
+Renders a journal story as a horizontal card.
+
+@context {page} . The journal page.
+
+@example: {{ partial "story-card.html" . }}
+*/}}
+
+<article class="story-card">
+  <div class="story-card__media">
+    {{- with and .Params.cover (.Resources.Get .Params.cover) }}
+      {{- with .Fill "380x290 webp" }}
+        <img src="{{ .RelPermalink }}" width="{{ div .Width 2 }}" height="{{ div .Height 2 }}" alt="" loading="lazy">
+      {{- end }}
+    {{- else }}
+      <span class="story-card__placeholder" aria-hidden="true">{</span>
+    {{- end }}
+  </div>
+  <header class="story-card__head">
+    {{- with .GetTerms "branches" }}
+      <p class="eyebrow">{{ (index . 0).Title }}</p>
+    {{- end }}
+    <h3 class="story-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  </header>
+  {{- with .Description }}
+    <p class="story-card__desc">{{ . }}</p>
+  {{- end }}
+  <div class="story-card__meta">{{ partial "meta.html" . }}</div>
+  <span class="story-card__arrow">{{ partial "icon.html" "arrow-up-right" }}</span>
+</article>

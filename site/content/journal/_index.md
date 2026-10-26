@@ -1,3 +1,3 @@
 ---
-title: 'The journal'
+title: 'O diário'
 ---

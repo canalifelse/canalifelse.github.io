@@ -1,0 +1,20 @@
+[[main]]
+  identifier = 'home'
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[main]]
+  identifier = 'journal'
+  name = 'The journal'
+  pageRef = '/journal'
+  weight = 20
+[[main]]
+  identifier = 'about'
+  name = 'About If Else'
+  pageRef = '/about'
+  weight = 30
+[[main]]
+  identifier = 'youtube'
+  name = 'YouTube'
+  url = 'https://www.youtube.com/@canalifelse'
+  weight = 40

@@ -1,10 +1,16 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
-  {{ end }}
+  <section class="listing container">
+    <header class="listing__header">
+      <h1 class="title-xl">{{ .Title }}</h1>
+      {{- with .Description }}<p class="prose-page__lead">{{ . }}</p>{{ end }}
+      {{ .Content }}
+    </header>
+    {{- with .Pages }}
+      <div class="story-list">
+        {{- range . }}{{ partial "story-card.html" . }}{{ end }}
+      </div>
+    {{- else }}
+      <p class="journal__empty">{{ T "noStories" }}</p>
+    {{- end }}
+  </section>
 {{ end }}

@@ -1,0 +1,20 @@
+[[main]]
+  identifier = 'home'
+  name = 'Início'
+  pageRef = '/'
+  weight = 10
+[[main]]
+  identifier = 'journal'
+  name = 'O diário'
+  pageRef = '/journal'
+  weight = 20
+[[main]]
+  identifier = 'about'
+  name = 'Sobre o If Else'
+  pageRef = '/about'
+  weight = 30
+[[main]]
+  identifier = 'youtube'
+  name = 'YouTube'
+  url = 'https://www.youtube.com/@canalifelse'
+  weight = 40

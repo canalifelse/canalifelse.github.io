@@ -1,0 +1,6 @@
+{{- /*
+Renders "Format · N min read" for a journal page.
+
+@context {page} . The journal page.
+*/}}
+<p class="meta">{{ with .Params.format }}{{ . }} · {{ end }}{{ T "readingTime" .ReadingTime }}</p>

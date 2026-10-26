@@ -1,0 +1,22 @@
+{{- /*
+Renders the main menu plus links to the page's translations.
+
+@context {page} . The current page.
+*/}}
+
+{{- $page := . }}
+<ul class="nav">
+  {{- range site.Menus.main }}
+    {{- $external := hasPrefix .URL "http" }}
+    <li>
+      <a class="nav__link{{ if $external }} nav__link--strong{{ end }}" href="{{ .URL }}"
+        {{- if $page.IsMenuCurrent .Menu . }} aria-current="page"{{ else if and (ne .Identifier "home") ($page.HasMenuCurrent .Menu .) }} aria-current="true"{{ end }}
+        {{- if $external }} rel="noopener"{{ end }}>
+        {{- .Name }}{{ if $external }} {{ partial "icon.html" "arrow-up-right" }}{{ end -}}
+      </a>
+    </li>
+  {{- end }}
+  {{- range .Translations }}
+    <li><a class="nav__link nav__lang" href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a></li>
+  {{- end }}
+</ul>

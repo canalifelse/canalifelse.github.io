@@ -2,8 +2,10 @@
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 date: '{{ .Date }}'
 draft: true
-format: ''         # e.g. Explainer, Tutorial, Review
+format: ''         # ex.: Explainer, Tutorial, Review
 branches: []       # software-development | data-science | board-games | other-things
 description: ''
-cover: ''          # image file inside this bundle, e.g. cover.jpg
+kicker: ''         # rótulo opcional ao lado do ramo, ex.: A grande ideia
+featured: false    # destaque na home
+cover: ''          # imagem dentro deste bundle, ex.: cover.jpg
 ---

@@ -1,3 +1,0 @@
----
-title: 'Desenvolvimento de software'
----
