@@ -126,6 +126,7 @@ img {
 .title-xl {
   font-size: clamp(2.875rem, 2rem + 3.2vw, 4.5rem); /* 46px → 72px */
   line-height: 1.05;
+  text-align: center;
 }
 
 .title-lg {
@@ -361,7 +362,7 @@ img {
 .intro__grid {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
   margin-top: 1.25rem;
 }
@@ -387,13 +388,19 @@ img {
 .topics__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
 }
 
+ul.topics__list li {
+  flex-grow: 1;
+}
+
 .topic-button {
-  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   gap: 0.5rem;
   min-height: 2.75rem;
   padding: 0.5rem 1rem;
@@ -1203,7 +1210,6 @@ img {
   }
 
   .intro__grid {
-    align-items: center;
     gap: 3rem;
   }
 
