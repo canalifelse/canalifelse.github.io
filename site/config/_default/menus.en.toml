@@ -5,7 +5,7 @@
   weight = 10
 [[main]]
   identifier = 'journal'
-  name = 'The journal'
+  name = 'Posts'
   pageRef = '/journal'
   weight = 20
 [[main]]

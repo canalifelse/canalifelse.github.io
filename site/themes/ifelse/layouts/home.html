@@ -11,13 +11,10 @@
   <section class="intro container" aria-labelledby="intro-title">
     <p class="eyebrow">{{ $p.intro.eyebrow }}</p>
     <div class="intro__grid">
+      {{ partial "duck.html" }}
       <h1 class="title-xl" id="intro-title">
         {{- range $i, $line := $p.intro.title }}{{ if $i }}<br> {{ end }}{{ $line }}{{ end -}}
       </h1>
-      <div class="intro__lead">
-        <p>{{ $p.intro.lead }}</p>
-        <a class="link-cta" href="#journal">{{ $p.intro.cta }} {{ partial "icon.html" "arrow-down" }}</a>
-      </div>
     </div>
     {{- with site.GetPage "/branches" }}
       <nav class="topics" aria-label="{{ $p.intro.branches }}">
@@ -94,10 +91,6 @@
           {{ partial "branch-list.html" . }}
         </div>
 
-        <div class="wip">
-          <h3 class="wip__title">{{ $p.wip.title }}</h3>
-          <p>{{ $p.wip.body }}</p>
-        </div>
       </aside>
     </div>
   </section>

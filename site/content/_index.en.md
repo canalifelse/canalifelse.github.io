@@ -1,34 +1,31 @@
 ---
 title: 'IF ELSE'
-description: 'An independent corner of the internet for software, data, board games, and the interesting bits in between.'
+description: 'A tech channel for everyone: software, data, board games, and other things in life.'
 intro:
   eyebrow: "Hello, world! We're If Else"
-  title: ['Follow your curiosity.', 'See where it branches.']
-  lead: 'An independent corner of the internet for software, data, board games, and the interesting bits in between. We learn things, make things, and share what clicks.'
-  cta: 'Find your next rabbit hole'
-  branches: 'Explore the branches'
+  title: ['A tech channel for everyone.']
+  lead: 'A channel about software, data, board games, and other things in life. Always learning, building, and sharing.'
+  cta: 'See posts'
+  branches: 'Topics'
 journal:
-  eyebrow: 'From the editorial desk'
+  eyebrow: 'Posts'
   title: 'Ideas we’re exploring'
-  aside: 'A few good places to start'
-  all: 'All the rabbit holes'
-  empty: 'The first stories are on their way.'
-  art: 'Less stack. More making.'
+  aside: 'Start here'
+  all: 'See all posts'
+  empty: 'No posts yet. Check back soon.'
+  art: 'Debugged with a rubber duck.'
 hello:
-  greeting: '// hello there'
+  greeting: '// quack!'
   title: ['One channel.', 'Many interests.']
   body:
-    - 'If Else is a YouTube project and a home for the notes around it. We’re here to make technical ideas approachable—and leave room for a good board game.'
-    - 'No niche too narrow. No question too basic. Just useful things, shared with care.'
+    - 'If Else is a YouTube channel, and this site collects the notes around it. We explain technology in a simple way, like explaining it to a rubber duck.'
+    - 'No question is too basic. Everyone is welcome here.'
   link: 'More about If Else'
-picker: 'Pick a branch'
-wip:
-  title: 'A work in progress, by design.'
-  body: 'The stories here are a preview of the ideas we’d like to share. Think of this as an open notebook, not a finished syllabus.'
+picker: 'Topics'
 youtube:
   label: 'If Else on YouTube'
-  title: ['Some ideas are better', 'talked through.']
-  body: 'Code on screen. Questions out loud. The occasional roll of the dice. Our YouTube channel is the other half of this notebook.'
+  title: ['Some ideas work', 'better on video.']
+  body: 'Code on screen, unhurried explanations and, now and then, a board game. The videos live on YouTube.'
   button: 'Visit the YouTube channel'
   art: 'If Else / The channel'
   caption: 'Build. Learn. Play. Repeat.'

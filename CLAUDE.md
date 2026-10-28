@@ -9,7 +9,7 @@ O site fica na pasta `site/`; o design de referência fica em `design/` (local, 
   (resources.ExecuteAsTemplate). Nunca hardcodar hex no CSS.
 - Tema claro/escuro: papéis semânticos (`--bg`, `--ink`, …) mapeados para nomes de tokens em
   `themes/ifelse/data/theme.toml` e gerados como `light-dark()` em `assets/css/tokens.css`.
-  No CSS, use os papéis, não `--color-*` direto (exceto na ilustração decorativa).
+  No CSS, use os papéis, não `--color-*` direto (exceto na ilustração decorativa e no realce de código).
 - Fontes self-hosted em `static/fonts` (GDPR). Proibido carregar fontes do Google CDN.
 - CSS puro, mobile-first. Breakpoint principal: 390px (mobile) e 1440px (desktop).
 - Sem JavaScript, salvo quando pedido explicitamente. Única exceção atual: o toggle de tema

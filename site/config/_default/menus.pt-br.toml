@@ -5,7 +5,7 @@
   weight = 10
 [[main]]
   identifier = 'journal'
-  name = 'O diário'
+  name = 'Publicações'
   pageRef = '/journal'
   weight = 20
 [[main]]

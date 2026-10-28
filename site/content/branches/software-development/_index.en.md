@@ -1,7 +1,7 @@
 ---
 title: 'Software development'
 linkTitle: 'Software development'
-description: 'Build, debug, understand.'
+description: 'If it compiles, we explain it.'
 icon: 'code'
 weight: 1
 ---

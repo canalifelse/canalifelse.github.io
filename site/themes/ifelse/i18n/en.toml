@@ -17,10 +17,8 @@ other = 'If Else home'
 other = '{{ .Count }} min read'
 
 [exploreIdea]
-other = 'Explore the idea'
+other = 'Read post'
 
-[readMore]
-other = 'Read the story'
 
 [playVideo]
 other = 'Watch If Else on YouTube'
@@ -29,10 +27,10 @@ other = 'Watch If Else on YouTube'
 other = 'There’s always an else.'
 
 [footerTitle]
-other = 'Stay curious. Pass it on.'
+other = 'When in doubt, ask the duck.'
 
 [footerBody]
-other = 'Found a good question? That’s where the next story starts.'
+other = 'Every good question deserves to be asked out loud.'
 
 [colophon]
 other = 'Made of questions, not cookies.'
@@ -41,7 +39,7 @@ other = 'Made of questions, not cookies.'
 other = 'Back to top'
 
 [noStories]
-other = 'No stories here yet.'
+other = 'No posts here yet.'
 
 [darkTheme]
 other = 'Dark theme'

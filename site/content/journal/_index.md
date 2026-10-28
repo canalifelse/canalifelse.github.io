@@ -1,3 +1,3 @@
 ---
-title: 'O diário'
+title: 'Publicações'
 ---

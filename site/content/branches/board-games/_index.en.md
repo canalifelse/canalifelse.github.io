@@ -1,7 +1,7 @@
 ---
 title: 'Board games'
 linkTitle: 'Board games'
-description: 'Good systems. Great company.'
+description: 'The kind of data with six sides.'
 icon: 'dice'
 weight: 3
 ---

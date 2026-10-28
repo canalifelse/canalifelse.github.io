@@ -1,34 +1,31 @@
 ---
 title: 'IF ELSE'
-description: 'Um canal independente da internet sobre software, dados, jogos de tabuleiro e as coisas interessantes no meio do caminho.'
+description: 'Um canal de tecnologias para todas as pessoas: software, dados, jogos de tabuleiro e outras coisas da vida.'
 intro:
   eyebrow: 'Olá, mundo! Nós somos o If Else'
-  title: ['Siga sua curiosidade.', 'Os dados estão lançados.']
-  lead: 'Um canal independente sobre software, dados (os de planilha e os de seis lados), jogos de tabuleiro e o que mais aparecer no caminho. A gente aprende, constrói e compartilha o que faz sentido.'
-  cta: 'Faça sua jogada'
-  branches: 'Escolha um caminho'
+  title: ['Um canal de tecnologias para todas as pessoas.']
+  lead: 'Um canal sobre software, dados, jogos de tabuleiro e outras coisas da vida. Sempre aprendendo, construindo e compartilhando.'
+  cta: 'Ver publicações'
+  branches: 'Assuntos'
 journal:
-  eyebrow: 'Direto da nossa mesa'
+  eyebrow: 'Publicações'
   title: 'Ideias que estamos explorando'
   aside: 'Comece por aqui'
-  all: 'Ler o diário completo'
-  empty: 'Os dados ainda estão rolando. Volte em breve.'
+  all: 'Ver todas as publicações'
+  empty: 'Ainda não há publicações. Volte em breve.'
   art: 'Depurado com pato de borracha.'
 hello:
   greeting: '// quack!'
   title: ['Um canal.', 'Muitos interesses.']
   body:
-    - 'O If Else é um projeto no YouTube e um lar para as anotações em volta dele. Explicamos ideias técnicas do jeito que você explicaria para um pato de borracha—e sempre sobra espaço para uma boa partida.'
-    - 'Nenhum nicho é pequeno demais. Nenhuma pergunta é básica demais. Só coisas úteis, compartilhadas com cuidado.'
+    - 'O If Else é um canal no YouTube, e este site reúne as anotações em volta dele. Explicamos tecnologia de um jeito simples, como quem explica para um pato de borracha.'
+    - 'Nenhuma pergunta é básica demais. Aqui todo mundo é bem-vindo.'
   link: 'Mais sobre o If Else'
-picker: 'Escolha um caminho'
-wip:
-  title: 'Versão beta, de propósito.'
-  body: 'As histórias aqui são uma prévia das ideias que queremos compartilhar. Pense nisto como um caderno aberto, não uma ementa pronta.'
+picker: 'Assuntos'
 youtube:
   label: 'If Else no YouTube'
-  title: ['Tem ideia que só faz sentido', 'quando a gente fala em voz alta.']
-  body: 'Código na tela, perguntas em voz alta e, de vez em quando, uma rolagem de dados. Pense num pato de borracha que responde: nosso canal no YouTube é a outra metade deste caderno.'
+  title: ['Algumas ideias ficam', 'melhores em vídeo.']
+  body: 'Código na tela, explicações sem pressa e, de vez em quando, uma partida de tabuleiro. Os vídeos ficam no YouTube.'
   button: 'Visite o canal no YouTube'
   art: 'If Else / O canal'
   caption: 'Construir. Aprender. Jogar. Repetir.'

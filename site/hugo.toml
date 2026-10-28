@@ -24,3 +24,7 @@ defaultContentLanguageInSubdir = false
 [imaging]
   [imaging.webp]
     quality = 80
+
+# Syntax highlighting emits classes (styled in main.css from tokens) instead of inline hex colors.
+[markup.highlight]
+  noClasses = false

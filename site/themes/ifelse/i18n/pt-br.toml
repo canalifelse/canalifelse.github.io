@@ -17,10 +17,8 @@ other = 'Página inicial do If Else'
 other = '{{ .Count }} min de leitura'
 
 [exploreIdea]
-other = 'Explore a ideia'
+other = 'Ler publicação'
 
-[readMore]
-other = 'Ler a história'
 
 [playVideo]
 other = 'Assista ao If Else no YouTube'
@@ -32,7 +30,7 @@ other = 'Sempre existe um senão.'
 other = 'Na dúvida, pergunte ao pato.'
 
 [footerBody]
-other = 'Toda boa pergunta merece ser dita em voz alta. É aí que começa a próxima história.'
+other = 'Toda boa pergunta merece ser dita em voz alta.'
 
 [colophon]
 other = 'Feito de perguntas, não de cookies.'
@@ -41,7 +39,7 @@ other = 'Feito de perguntas, não de cookies.'
 other = 'Voltar ao topo'
 
 [noStories]
-other = 'Nada por aqui ainda. Os dados ainda estão rolando.'
+other = 'Ainda não há publicações aqui.'
 
 [darkTheme]
 other = 'Tema escuro'

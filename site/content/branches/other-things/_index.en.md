@@ -1,7 +1,7 @@
 ---
 title: 'Other things'
-linkTitle: '& other things'
-description: 'The joy of a useful tangent.'
+linkTitle: 'Other things'
+description: 'Everything else falls into the else.'
 icon: 'sparkle'
 weight: 4
 ---

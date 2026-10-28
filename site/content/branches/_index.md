@@ -1,3 +1,3 @@
 ---
-title: 'Categorias'
+title: 'Assuntos'
 ---

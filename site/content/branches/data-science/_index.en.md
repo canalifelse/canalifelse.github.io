@@ -1,7 +1,7 @@
 ---
 title: 'Data science'
 linkTitle: 'Data science'
-description: 'Find the story in the numbers.'
+description: 'Data doesn’t lie, but sometimes it bluffs.'
 icon: 'chart'
 weight: 2
 ---
